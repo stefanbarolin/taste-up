@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_175421) do
+ActiveRecord::Schema.define(version: 2020_10_13_180203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "meal_reviews", force: :cascade do |t|
+    t.string "content"
+    t.string "picture_url"
+    t.integer "rating"
+    t.bigint "meal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meal_id"], name: "index_meal_reviews_on_meal_id"
+    t.index ["user_id"], name: "index_meal_reviews_on_user_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.string "category"
+    t.string "name"
+    t.string "description"
+    t.integer "price"
+    t.string "picture_url"
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_meals_on_restaurant_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.bigint "meal_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "restaurant_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["meal_id"], name: "index_orders_on_meal_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "category"
@@ -37,5 +72,11 @@ ActiveRecord::Schema.define(version: 2020_10_13_175421) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "meal_reviews", "meals"
+  add_foreign_key "meal_reviews", "users"
+  add_foreign_key "meals", "restaurants"
+  add_foreign_key "orders", "meals"
+  add_foreign_key "orders", "restaurants"
+  add_foreign_key "orders", "users"
   add_foreign_key "restaurants", "users"
 end
