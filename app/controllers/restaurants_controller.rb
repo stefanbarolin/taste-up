@@ -1,9 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :init_restaurant, only: [:show, :edit, :update, :destroy]
 
-  def home
-  end
-
   def index
     @restaurants = Restaurant.all
   end
