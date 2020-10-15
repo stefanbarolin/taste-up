@@ -1,0 +1,13 @@
+show.html.erb
+<div class="container">
+  <h1><%= @meal.name %> </h1>
+  <ul>
+    <li><%= @meal.name %></li>
+    <li><%= @meal.category %></li>
+    <li><%= @meal.price %></li>
+  </ul>
+  <% @restaurant_id = meal.restaurant.id %>
+  <%= link_to "back to #{@meal.restaurant.name}", restaurant_path(@restaurant_id) %>
+  <%= link_to "delete this meal", delete_restaurant_meal_path %>
+  <%= link_to "edit this meal", edit_restaurant_meal_path %>
+</div>
