@@ -1,0 +1,11 @@
+<div class="container">
+  <h1><%= @restaurant.name %> </h1>
+
+  <p><%= @restaurant.adress %></p>
+  <p><%= @restaurant.category %></p>
+  <%= link_to "back to restaurants", restaurants_path %>
+  <%= link_to "add meals", new_restaurant_meal_path %>
+  <%= link_to "delete this restaurant", restaurant_delete_path %>
+  <%= link_to "edit this restaurant", edit_restaurant_path %>
+</div>
+
