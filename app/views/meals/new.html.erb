@@ -1,0 +1,13 @@
+<div class= "container col-lg-">
+<center><h1><%= @restaurant.name %></h1></center>
+  <h3>Add meal</h3>
+  <%= simple_form_for [ @restaurant, @meal] do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price %>
+  <%= f.input :picture_url %>
+  <%= f.association :category, prompt: "Choose a category" %>
+  <%= f.submit "Submit this meal", class: "btn btn-primary" %>
+<% end %>
+<%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %>
+</div>
