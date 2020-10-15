@@ -1,13 +1,13 @@
-
-<div class="container">
-<center><h1><%= @meal.name %></h1></center>
-  <h3>Edit</h3>
-  <%= simple_form_for [ @restaurant, @meal] do |f| %>
+<div class= "container col-lg-">
+  <% @restaurant = Restaurant.find(params[:restaurant_id]) %>
+<center><h1><%= @restaurant.name %></h1></center>
+  <h3>Edit meal</h3>
+  <%= simple_form_for [@restaurant, @meal] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
   <%= f.input :picture_url %>
-  <%= f.association :category, collection:["Francais", "Japonais", "Libanais", "Burgers"] %>
+  <%= f.input :category, :collection => %w["Francais", "Japonais", "Libanais", "Burgers"] %>
   <%= f.submit "Edit this meal", class: "btn btn-primary" %>
 <% end %>
 <%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %>

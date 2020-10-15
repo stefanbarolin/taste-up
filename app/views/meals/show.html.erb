@@ -1,13 +1,12 @@
-show.html.erb
 <div class="container">
   <h1><%= @meal.name %> </h1>
   <ul>
-    <li><%= @meal.name %></li>
-    <li><%= @meal.category %></li>
-    <li><%= @meal.price %></li>
+    <li>meal name : <%= @meal.name %></li>
+    <li>meal category : <%= @meal.category %></li>
+    <li>meal price : <%= @meal.price %></li>
   </ul>
-  <% @restaurant_id = meal.restaurant.id %>
-  <%= link_to "back to #{@meal.restaurant.name}", restaurant_path(@restaurant_id) %>
-  <%= link_to "delete this meal", delete_restaurant_meal_path %>
+  <% @restaurant_id = Restaurant.find(params[:restaurant_id]) %>
+  <%= link_to "back to restaurant", restaurant_path(params[:restaurant_id]) %>
+  <%= link_to "Delete", restaurant_meal_path(@meal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
   <%= link_to "edit this meal", edit_restaurant_meal_path %>
 </div>

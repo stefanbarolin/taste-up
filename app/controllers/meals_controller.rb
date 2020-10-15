@@ -1,7 +1,6 @@
 class MealsController < ApplicationController
-  class RestaurantsController < ApplicationController
   before_action :init_meal, only: [:show, :edit, :update, :destroy]
-  before_action :current_restaurant, only: [:index, :nex, :create]
+  before_action :current_restaurant, only: [:index, :new, :create]
 
   def home
   end
@@ -20,8 +19,11 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.restaurant = @restaurant
-    @meal.save
+    if @meal.save
     redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -30,23 +32,22 @@ class MealsController < ApplicationController
   def update
     @meal.assign_attributes(meal_params)
     @meal.save
-    redirect_to meal_path(@meal)
+    redirect_to restaurant_meal_path(@meal)
   end
   def destroy
     @meal.destroy
-    redirect_to restaurants_path
+    redirect_to restaurant_path(@meal.restaurant)
   end
 
   def init_meal
     @meal = Meal.find(params[:id])
   end
   def current_restaurant
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
   private
 
-  def restaurant_params
+  def meal_params
     params.require(:meal).permit(:restaurant_id, :picture_url, :price, :description, :name, :category)
   end
-end
 end

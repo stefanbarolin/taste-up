@@ -3,9 +3,16 @@
 
   <p><%= @restaurant.adress %></p>
   <p><%= @restaurant.category %></p>
+
+  <ul>
+    <%@restaurant.meals.each do |meal|  %>
+    <li><%= link_to meal.name, restaurant_meal_path(meal) %> </li>
+    <% end %>
+  </ul>
+
   <%= link_to "back to restaurants", restaurants_path %>
-  <%= link_to "add meals", new_restaurant_meal_path %>
-  <%= link_to "delete this restaurant", restaurant_delete_path %>
+  <%= link_to "add meals", new_restaurant_meal_path(@restaurant) %>
+  <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
   <%= link_to "edit this restaurant", edit_restaurant_path %>
 </div>
 
