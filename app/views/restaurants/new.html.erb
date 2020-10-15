@@ -5,7 +5,7 @@
   <%= simple_form_for(@restaurant) do |f| %>
     <%= f.input :name %>
     <%= f.input :adress %>
-    <%= f.association :category, prompt: "Choose a category" %>
+    <%= f.association :category, collection:["Francais", "Japonais", "Libanais", "Burgers"] %>
     <%= f.submit "Submit restaurant", class: "btn btn-primary" %>
     <%= f.submit %>
   <% end %>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Update <%= @restaurant.name %> </h1>
+  <%= simple_form_for(@restaurant) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :adress %>
+    <%= f.input :category, collection: ["Francais", "Japonais", "Libanais", "Burgers"] %>
+    <%= f.submit "Update restaurant", class: "btn btn-primary" %>
+    <%= f.submit %>
+  <% end %>
+</div>
