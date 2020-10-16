@@ -1,0 +1,8 @@
+<div class="container">
+<h1>Create an order</h1>
+<br>
+<%= simple_form_for(@order) do |f| %>
+    <%= f.input :id_meals, :label => "Sélectionnez un menu", as: :select, collection: @meals.rubrics %>
+    <%= f.submit "Submit your order", class: "btn btn-primary" %>
+  <% end %>
+</div>
