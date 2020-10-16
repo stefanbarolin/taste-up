@@ -9,7 +9,9 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2020_10_13_190915) do
+
+ActiveRecord::Schema.define(version: 2020_10_15_180248) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,7 +28,6 @@ ActiveRecord::Schema.define(version: 2020_10_13_190915) do
   end
 
   create_table "meals", force: :cascade do |t|
-    t.string "category"
     t.string "name"
     t.string "description"
     t.integer "price"
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 2020_10_13_190915) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "title"
     t.string "name"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
