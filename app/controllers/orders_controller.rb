@@ -3,18 +3,26 @@ class OrdersController < ApplicationController
   def index
     @order = Order.all
   end
-  def edit
-    @order= Order.find(params[:id])
-    @order.assign_attributes(order_params)
-    @order.save
-    redirect_to task_path
-  end
+
+  # def edit
+  #   @order= Order.find(params[:id])
+  #   @order.assign_attributes(order_params)
+  #   @order.save
+  #   redirect_to task_path
+  # end
 
   def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
     @order.user = current_user
-    @order.save
+    @order.restaurant = @restaurant
+    @order.meal = @meal
+    if @order.save
     redirect_to restaurant_meal_order_path(@order)
+  else
+    render :new
+    end
   end
 
   def new
@@ -23,11 +31,14 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def update
-
-  end
+  # def update
+  #   edit
+  # end
 
   def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to order_path
   end
 
   def show
