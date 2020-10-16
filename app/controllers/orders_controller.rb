@@ -7,7 +7,6 @@ class OrdersController < ApplicationController
     @order= Order.find(params[:id])
     @order.assign_attributes(order_params)
     @order.save
-
     redirect_to task_path
   end
 
