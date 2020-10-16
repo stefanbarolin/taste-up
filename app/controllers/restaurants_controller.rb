@@ -1,47 +1,53 @@
-class RestaurantsController < ApplicationController
-  before_action :init_restaurant, only: [:show, :edit, :update, :destroy]
+class OrdersController < ApplicationController
 
   def index
-    @restaurants = Restaurant.all
+    @order = Order.all
   end
 
-  def show
-  end
-
-  def new
-    @restaurant = Restaurant.new
-  end
+  # def edit
+  #   @order= Order.find(params[:id])
+  #   @order.assign_attributes(order_params)
+  #   @order.save
+  #   redirect_to task_path
+  # end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.user = current_user
-    if @restaurant.save
-     redirect_to restaurants_path
-    else
-      new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = Meal.find(params[:meal_id])
+    @order = Order.new(order_params)
+    @order.user = current_user
+    @order.restaurant = @restaurant
+    @order.meal = @meal
+    if @order.save
+    redirect_to restaurant_meal_order_path(@order)
+  else
+    render :new
     end
   end
 
-  def edit
+  def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @meal = Meal.find(params[:meal_id])
+    @order = Order.new
   end
 
-  def update
-    @restaurant.assign_attributes(restaurant_params)
-    @restaurant.save
-    redirect_to restaurants_path(@restaurant)
-  end
+  # def update
+  #   edit
+  # end
+
   def destroy
-    @restaurant.destroy
-    redirect_to restaurants_path
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to order_path
   end
 
-  def init_restaurant
-    @restaurant = Restaurant.find(params[:id])
+  def show
+    @order = Order.find(params[:id])
   end
 
   private
 
-  def restaurant_params
-    params.require(:restaurant).permit(:name, :adress, :category, :picture_url)
+  def order_params
+    params.require(:order).permit(:id_meals, :id_users, :id_restaurants)
   end
 end
