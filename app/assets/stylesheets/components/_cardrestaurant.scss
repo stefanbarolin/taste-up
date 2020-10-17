@@ -1,0 +1,30 @@
+.card-restaurant {
+  width: 15rem;
+  background-color: white;
+}
+
+p.card-title {
+  color: black;
+  font-family: Roboto;
+  font-weight: 300;
+  font-size: 18px;
+  height: 2em;
+}
+
+.card-restaurant span > i {
+  color: #EC7357;
+  font-size: 15px;
+}
+
+.card-restaurant span {
+  color: black;
+  font-size: 12px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
