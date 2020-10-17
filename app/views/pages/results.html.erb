@@ -1,13 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1635&q=80);">
   <div class="container">
     <h1>Pick a meal ...</h1>
     <div></div>
-    <h1>or pick a restaurant ...</h1>
+    <h1 class="mb-4">or pick a restaurant ...</h1>
     <div class="row">
         <% @restaurants.each do |restaurant| %>
           <%= link_to restaurant_path(restaurant) do %>
             <div class="col-4">
-              <div class="card-restaurant">
+              <div class="card-restaurant" style="width: 15rem!important">
                 <img src=<%= restaurant.picture_url %> class="card-img-top" alt=<%= restaurant.name %>>
                 <div class="card-body">
                   <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
