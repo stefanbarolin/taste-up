@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Restaurant.destroy_all
+Meal.destroy_all
+
 puts 'Creating users…'
 10.times do
   restaurateur = User.new(
