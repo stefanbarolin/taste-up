@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def results
     @restaurants = Restaurant.all
+    @meals = Meal.all
   end
 end
