@@ -1,7 +1,27 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1635&q=80);">
   <div class="container">
+
     <h1>Pick a meal ...</h1>
-    <div></div>
+    <h1 class="mb-4">or pick a restaurant ...</h1>
+    <div class="row">
+      <div class="col-4">
+        <div class=container-meal-cards>
+          <%@meals.each do |meal|  %>
+            <%= link_to meal_path(meal) do %>
+              <div class="card-product">
+                <%= image_tag meal.picture_url || "" %>
+                <div class="card-product-infos">
+                  <h2><%= meal.name %></h2>
+                  <h3> <%= meal.price %></h3>
+                  <p><%= meal.description %> <p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <h1 class="mb-4">or pick a restaurant ...</h1>
     <div class="row">
         <% @restaurants.each do |restaurant| %>
@@ -24,6 +44,7 @@
           <% end %>
         <% end %>
     </div>
+
   </div>
 </div>
 <%= render 'shared/footer' %>

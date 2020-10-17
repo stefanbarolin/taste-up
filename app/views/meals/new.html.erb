@@ -1,6 +1,13 @@
+
+
+<div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
+    <div class="container-title-card">
+      <h1><%= @restaurant.name %> </h1>
+      <p><%= @restaurant.adress %></p>
+      <p><%= @restaurant.category %></p>
+    </div>
+</div>
 <div class= "container col-lg-">
-  <% @restaurant = Restaurant.find(params[:restaurant_id]) %>
-<center><h1><%= @restaurant.name %></h1></center>
   <h3>Add meal</h3>
   <%= simple_form_for [@restaurant, @meal] do |f| %>
   <%= f.input :name %>

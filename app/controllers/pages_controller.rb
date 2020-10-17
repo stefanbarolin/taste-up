@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def results
-    @restaurants = Restaurant.all
-    @meals = Meal.all
+    @restaurants = Restaurant.all.limit(4)
+    @meals = Meal.all.limit(4)
   end
 end
