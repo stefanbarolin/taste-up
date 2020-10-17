@@ -3,26 +3,22 @@
 
     <h1>Pick a meal ...</h1>
     <div class="row">
-      <% @meals.each do |meal| %>
-        <%= link_to meal_path(meal) do %>
-          <div class="col-4">
-            <div class=container-meal-cards>
-              <% @meals.each do |meal|  %>
-                <%= link_to meal_path(meal) do %>
-                  <div class="card-product">
-                    <%= image_tag meal.picture_url || "" %>
-                    <div class="card-product-infos">
-                      <h2><%= meal.name %></h2>
-                      <h3> <%= meal.price %></h3>
-                      <p><%= meal.description %> <p>
-                    </div>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
+      <div class="col-4">
+        <div class=container-meal-cards>
+          <%@meals.each do |meal|  %>
+            <%= link_to meal_path(meal) do %>
+              <div class="card-product">
+                <%= image_tag meal.picture_url || "" %>
+                <div class="card-product-infos">
+                  <h2><%= meal.name %></h2>
+                  <h3> <%= meal.price %></h3>
+                  <p><%= meal.description %> <p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
 
     <h1>or pick a restaurant ...</h1>

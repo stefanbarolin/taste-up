@@ -3,7 +3,8 @@
   <%= simple_form_for(@restaurant) do |f| %>
     <%= f.input :name %>
     <%= f.input :adress %>
-    <%= f.input :category, :collection => %w["Francais", "Japonais", "Libanais", "Burgers"] %>
+    <%= f.input :picture_url %>
+    <%= f.input :category, :collection => %w(Francais Japonais Libanais Burger Italien) %>
     <%= f.submit "Update restaurant", class: "btn btn-primary" %>
   <% end %>
 </div>
