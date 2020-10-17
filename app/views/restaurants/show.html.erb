@@ -1,9 +1,12 @@
+<div class="banner-restaurant" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80);">
+    <div class="container-title-card">
+      <h1><%= @restaurant.name %> </h1>
+      <p><%= @restaurant.adress %></p>
+      <p><%= @restaurant.category %></p>
+    </div>
+</div>
 <div class="container">
-  <h1><%= @restaurant.name %> </h1>
-
-  <p><%= @restaurant.adress %></p>
-  <p><%= @restaurant.category %></p>
-
+ <h1>Meals available</h1>
   <div class=container-meal-cards>  
     <%@restaurant.meals.each do |meal|  %>
       <%= link_to meal_path(meal) do %>
@@ -24,5 +27,6 @@
   <%= link_to "add meals", new_restaurant_meal_path(@restaurant) %>
   <%= link_to "Delete", restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
   <%= link_to "edit this restaurant", edit_restaurant_path %>
+</div>
 </div>
 
