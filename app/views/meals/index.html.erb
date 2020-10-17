@@ -3,8 +3,7 @@
   <ul>
     <% @meals.each do |meal| %>
       <li><<%= meal.name %></li>
-<!--       <li><<%= meal.category %></li>
- -->      <li><<%= meal.price %></li>
+      <li><<%= meal.price %></li>
     <% end %>
  </ul>
 <%= link_to "add a restaurant", new_restaurant_path %>
