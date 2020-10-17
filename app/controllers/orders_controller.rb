@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def index
-    @order = Order.all
+    @orders = Order.all
   end
 
   # def edit
@@ -12,21 +12,18 @@ class OrdersController < ApplicationController
   # end
 
   def create
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @meal = Meal.find(params[:meal_id])
     @order = Order.new(order_params)
     @order.user = current_user
-    @order.restaurant = @restaurant
     @order.meal = @meal
-    if @order.save
-    redirect_to restaurant_meal_order_path(@order)
+    if @order.save!
+    redirect_to order_path(@order)
   else
     render :new
     end
   end
 
   def new
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @meal = Meal.find(params[:meal_id])
     @order = Order.new
   end
@@ -37,8 +34,9 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    @meal = @order.meal
     @order.destroy
-    redirect_to order_path
+    redirect_to meal_orders(@meal)
   end
 
   def show
@@ -48,6 +46,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:id_meals, :id_users, :id_restaurants)
+    params.require(:order).permit(:meal_id, :user_id)
   end
 end

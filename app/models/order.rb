@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
   belongs_to :meal
   belongs_to :user
-  belongs_to :restaurant
+  belongs_to :restaurant, optional: true
 end
