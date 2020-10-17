@@ -2,7 +2,6 @@
   <h1><%= @meal.name %> </h1>
   <ul>
     <li>meal name : <%= @meal.name %></li>
-    <li>meal category : <%= @meal.category %></li>
     <li>meal price : <%= @meal.price %></li>
   </ul>
   <% @restaurant_id = Restaurant.find(params[:restaurant_id]) %>
