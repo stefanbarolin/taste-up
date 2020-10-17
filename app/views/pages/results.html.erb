@@ -2,6 +2,7 @@
   <div class="container">
 
     <h1>Pick a meal ...</h1>
+    <h1 class="mb-4">or pick a restaurant ...</h1>
     <div class="row">
       <div class="col-4">
         <div class=container-meal-cards>
@@ -21,13 +22,13 @@
       </div>
     </div>
 
-    <h1>or pick a restaurant ...</h1>
+    <h1 class="mb-4">or pick a restaurant ...</h1>
     <div class="row">
         <% @restaurants.each do |restaurant| %>
           <%= link_to restaurant_path(restaurant) do %>
             <div class="col-4">
-              <div class="card-restaurant">
-                <%= image_tag restaurant.picture_url || "" %>
+              <div class="card-restaurant" style="width: 15rem!important">
+                <img src=<%= restaurant.picture_url %> class="card-img-top" alt=<%= restaurant.name %>>
                 <div class="card-body">
                   <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
                 </div>
