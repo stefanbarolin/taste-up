@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2020_10_15_180248) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "title"
     t.string "name"
     t.index ["user_id"], name: "index_restaurants_on_user_id"
   end
