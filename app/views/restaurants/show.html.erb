@@ -4,11 +4,21 @@
   <p><%= @restaurant.adress %></p>
   <p><%= @restaurant.category %></p>
 
-  <ul>
+  <div class=container-meal-cards>  
     <%@restaurant.meals.each do |meal|  %>
-    <li><%= link_to meal.name, meal_path(meal) %> </li>
+      <%= link_to meal_path(meal) do %>
+        <div class="card-product">
+          <%= image_tag meal.picture_url || "" %>
+          <div class="card-product-infos">
+            <h2><%= meal.name %></h2>
+            <h3> <%= meal.price %></h3>
+            <p><%= meal.description %> <p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-  </ul>
+  </div>
+  
 
   <%= link_to "back to restaurants", restaurants_path %>
   <%= link_to "add meals", new_restaurant_meal_path(@restaurant) %>
