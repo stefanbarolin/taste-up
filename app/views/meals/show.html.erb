@@ -4,6 +4,7 @@
     <li>meal name : <%= @meal.name %></li>
     <li>meal price : <%= @meal.price %></li>
   </ul>
+  <%= link_to "Create an Order", new_meal_order_path(meal_id: @meal) %>
   <%= link_to "back to restaurant", restaurant_path(@meal.restaurant) %>
   <%= link_to "Delete", meal_path(@meal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
   <%= link_to "edit this meal", edit_meal_path(@meal) %>
