@@ -19,7 +19,6 @@ puts 'Creating users…'
   )
 restaurateur.save!
  Restaurant.create(user_id: restaurateur.id, name: Faker::Restaurant.name, category: Faker::Restaurant.type, adress: Faker::Address.street_address)
-
 end
 
 puts 'Done!'
