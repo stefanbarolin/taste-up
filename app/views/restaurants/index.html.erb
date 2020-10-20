@@ -1,11 +1,28 @@
-<div class="container">
-  <h1>Restaurants</h1>
-  <ul>
-    <% @restaurants.each do |restaurant| %>
-      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-    <% end %>
-  </ul>
-<%= link_to "add a restaurant", new_restaurant_path %>
+<div class="banner-restaurant-index">
+  <h3>Best places to eat</h3>
 </div>
-
-
+<div class="container index">
+  <h1>All restaurants</h1>
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+    <div class="col-4">
+      <div class="card-restaurant" style="width: 15rem!important">
+        <img src=<%= restaurant.picture_url %> class="card-img-top" alt=<%= restaurant.name %> || "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
+        <div class="card-body">
+          <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
+        </div>
+        <p class="card-footer">
+        <span>5</span>
+        <span>
+        <i class="far fa-star"></i>
+        </span>
+        <span>(100+ votes) <%= restaurant.category %></span>
+        </p>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <%= link_to "add a restaurant", new_restaurant_path %>
+</div>
