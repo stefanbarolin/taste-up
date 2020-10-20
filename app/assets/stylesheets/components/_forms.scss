@@ -1,0 +1,65 @@
+.banner-form {
+  background-size: cover;
+  background-position: right;
+  padding: 15vh 0;
+  margin-bottom: 20px;
+}
+
+.banner-form h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-content h1 {
+  font-weight: lighter
+}
+
+.banner-form p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.form-control {
+  margin-top: 0px;
+}
+
+.form-content {
+  width: 100%;
+  padding-right: 300px;
+  padding-left: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  justify: center;
+}
+
+.form-content h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-top: 25px;
+}
+
+label {
+  color: $coral;
+  font-size: 18px,
+}
+
+.form-actions .btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+    background-color: $coral;
+    color: white;
+    padding: 10px 227px;
+    margin-bottom: 25px;
+    border-radius: 20px;
+}
+
+h1 {
+  font-size: 34px;
+}
