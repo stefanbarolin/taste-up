@@ -5,7 +5,12 @@ class PagesController < ApplicationController
   end
 
   def results
-    @restaurants = Restaurant.all.limit(4)
-    @meals = Meal.all.limit(4)
+    if params[:query].present?
+      @restaurants = Restaurant.algolia_search(params[:query])
+      @meals = Meal.algolia_search(params[:query])
+    else
+      @restaurants = Restaurant.all
+      @meals = Meal.all
+    end
   end
 end

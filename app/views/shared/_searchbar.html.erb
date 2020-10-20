@@ -1,8 +1,11 @@
-<%= simple_form_for :search, url: results_path, method: :get do |f| %>
-<div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="What are you hungry for ...?" aria-label="Recipient's username" aria-describedby="basic-addon2">
-  <div class="input-group-append p-0">
-    <button name="button" type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i> Let's go!</button>
+<%= form_tag results_path, class: "input-group mb-3", method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Hungry...?"
+  %>
+  <div class="input-group-append">
+    <%= submit_tag "Search",
+    class: "btn btn-outline-secondary" %>
   </div>
-</div>
 <% end %>
