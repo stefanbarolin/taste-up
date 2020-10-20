@@ -1,10 +1,10 @@
 <div class="container">
-  <h1 class="mt-3 mb-3" style="color: #EC7458"><%= @meal.name %> </h1>
+  <h1 class="mt-3 mb-4" style="color: #EC7458"><%= @meal.name.upcase %> </h1>
     <div class="container">
   <div class="row">
     <div class="col-lg">
       <div class="card" style="width: 20rem;">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" class="card-img-top" alt="pizza-meal">
+        <img <%= @meal.picture_url %> class="card-img-top" alt="Meal img">
           <div class="card-body">
            <p class="card-text mb-1"> Meal name : <%= @meal.name %></p>
             <p class="card-text">Price : <%= @meal.price %>$ </p><center><a class="btn btn-outline-primary rounded-pill mb-3 mt-5" style="background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "Create an Order", new_meal_order_path(meal_id: @meal) %></center></a>
@@ -13,14 +13,11 @@
     </div>
     <div class="col-lg">
       <div class="card" style="width: 20rem; background-color: #E3E3E3;">
-        <h2 class="mt-3 mr-3 ml-3 mb-4 pb-1" style="font-size: 25px; font-weight: bold; color: #EC7458;"><center style="border-bottom: solid 2px #EC7458"> The Big pizza of the dead </center></h2>
+        <h2 class="mt-3 mr-3 ml-3 mb-4 pb-1" style="font-size: 25px; font-weight: bold; color: #EC7458;"><center style="border-bottom: solid 2px #EC7458"> In this meal you have </center></h2>
           <div class="card-body">
             <ul class="list-group mb-4">
-              <li class="list-group-item">Homemade Pizza Paw</li>
-              <li class="list-group-item">Cheddar cheese</li>
-              <li class="list-group-item">Fresh tomatoes</li>
-              <li class="list-group-item">Mozzarella</li>
-              <li class="list-group-item">4 cheeses</li>
+              <li class="list-group-item"><%= @meal.name %></li>
+              <li class="list-group-item"><%= @meal.description %></li>
             </ul>
           </div>
       </div>
@@ -49,37 +46,36 @@
   <h2 style="color: #EC7458" class="mt-3">See more ...</h2>
   <div class="container-meal-cards mt-5">
         <div class="card-product">
-          <img src="https://images.unsplash.com/photo-1584365685547-9a5fb6f3a70c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" alt="">
+          <img <%= @meal.picture_url.last %> alt="other menu">
           <div class="card-product-infos">
-            <h2>Pizza</h2>
-            <h3> 10$</h3>
-            <p>Margarita <p>
+             <h2><%= @meal.name.first %></h2>
+              <p><%= @meal.description.first %><p>
           </div>
         </div>
           <div class="card-product">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80" alt="">
+            <img <%= @meal.picture_url.first %> alt="other menu">
             <div class="card-product-infos">
-              <h2>Double cheese burger</h2>
-              <h3> 8$ </h3>
-              <p>Double beef burger<p>
+              <h2><%= @meal.name.first %></h2>
+              <p><%= @meal.description.first %><p>
             </div>
           </div>
             <div class="card-product">
-              <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80" alt="">
+              <img <%= @meal.picture_url.last %> alt="other menu">
               <div class="card-product-infos">
-                <h2>Sushi</h2>
-                <h3> 4$</h3>
-                <p>Japanese Food <p>
+                 <h2><%= @meal.name.last %></h2>
+                <p><%= @meal.description.last %><p>
               </div>
             </div>
   </div>
 </div>
-  <div class="btn btn-primary rounded-pill mb-5 mr-5" style="background-color: #EC7458; color: #fff; border: solid 1px #EC7458">
-  <%= link_to "back to restaurant", restaurant_path(@meal.restaurant) %>
+<div class="container">
+  <div class="btn btn-dark rounded-pill mb-5 mr-5">
+  <%= link_to "Back to restaurant", restaurant_path(@meal.restaurant) %>
   </div>
-    <div class="btn btn-primary rounded-pill mb-5 mr-5" style="background-color: #EC7458; color: #fff; border: solid 1px #EC7458">
+    <div class="btn btn-dark rounded-pill mb-5 mr-5">
     <%= link_to "Delete", meal_path(@meal), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
     </div>
-      <div class="btn btn-primary rounded-pill mb-5 mr-5" style="background-color: #EC7458; color: #fff; border: solid 1px #EC7458">
-      <%= link_to "edit this meal", edit_meal_path(@meal) %>
+      <div class="btn btn-dark rounded-pill mb-5 mr-5">
+      <%= link_to "Edit this meal", edit_meal_path(@meal) %>
       </div>
+</div>
