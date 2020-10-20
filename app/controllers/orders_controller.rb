@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   def new
     @meal = Meal.find(params[:meal_id])
     @order = Order.new
+    @random_meals = Meal.all.sample(3)
   end
 
   # def update

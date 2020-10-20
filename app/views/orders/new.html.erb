@@ -1,9 +1,35 @@
 <div class="container">
-<h1>Create an order</h1>
-<br>
-<%= simple_form_for([@meal, @order]) do |f| %>
-  <%#= f.input :meal, :label => "Sélectionnez un menu", as: :select, collection: @meals.rubrics %>
-  <%= f.association :meal, label: "Sélectionner un menu"%>
- <%= f.submit "Submit your order", class: "btn btn-primary" %>
-  <% end %>
+  <div class="row">
+    <div class="col-lg-9">
+      <h4 class="mt-3 mb-5">Your order is ready ! Enjoy your meal</h4>
+      <div class="card mb-3 ml-5" style="width: 50%; text-align: center;">
+        <img class="card-img-top " src="https://media.giphy.com/media/JdkSs3QlyJJvO/giphy.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= @meal.name %></h5>
+          <p class="card-text"><%= @meal.description %> Total : <%= @meal.price %>$</p>
+          <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small></p>
+        </div>
+      </div>
+      <a class="btn btn-outline-primary rounded-pill mt-2 mb-3" style="margin-left: 22%; background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "Go to the home page", root_path %></center></a>
+    </div>
+
+    <div class="col-lg-3">
+      <h4 class="mt-3 mb-3"> For the next time </h4>
+      <% @random_meals.each do |meal| %>
+        <div class="mt-5">
+          <div class="card-product">
+            <img <%= meal.picture_url %> alt="other menu">
+            <div class="card-product-infos">
+              <h2><%= meal.name %></h2>
+              <p><%= meal.description %><p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-success" role="alert">
+  Your order is ok
 </div>
