@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get "/results", to: 'pages#results', as: "results"
 
   resources :meals, only: [:show, :edit, :update, :destroy] do
-    resources :orders, only: [:create, :new, :index]
+    resources :meal_reviews, only: [:create, :new]
+    #resources :orders, only: [:create, :new, :index]
   end
   resources :orders, only: [:show, :edit, :destroy, :update]
 

@@ -7,8 +7,7 @@
         <img <%= @meal.picture_url %> class="card-img-top" alt="Meal img">
           <div class="card-body">
            <p class="card-text mb-1"> Meal name : <%= @meal.name %></p>
-            <p class="card-text">Price : <%= @meal.price %>$ </p><center><a data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary rounded-pill mb-3 mt-5 " style="background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "Create an Order", new_meal_order_path(meal_id: @meal) %></center></a>
-            <!-- Modal -->
+
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -23,7 +22,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" style="border: none; color: #fff!important;"><%= link_to "Yes", new_meal_order_path(meal_id: @meal) %></button>
+                    
                   </div>
                 </div>
               </div>
@@ -97,5 +96,8 @@
     </div>
       <div class="btn btn-dark rounded-pill mb-5 mr-5">
       <%= link_to "Edit this meal", edit_meal_path(@meal) %>
+      </div>
+      <div class="btn btn-dark rounded-pill mb-5 mr-5">
+      <%= link_to "Add a review", new_meal_meal_review_path(@meal) %>
       </div>
 </div>

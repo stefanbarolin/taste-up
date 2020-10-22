@@ -1,5 +1,5 @@
 class MealReviewsController < ApplicationController
-
+  
   def new
     @meal = Meal.find(params[:meal_id])
     @review = MealReview.new
