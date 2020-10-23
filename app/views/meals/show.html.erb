@@ -1,5 +1,6 @@
 <div class="container">
   <h1 class="mt-3 mb-4" style="color: #EC7458"><%= @meal.name.upcase %> </h1>
+</div>
     <div class="container">
   <div class="row">
     <div class="col-lg">
@@ -7,7 +8,27 @@
         <%= cl_image_tag @meal.photo.key, class: 'card-img-top', alt: @meal.name, crop: :fill%>
           <div class="card-body">
            <p class="card-text mb-1"> Meal name : <%= @meal.name %></p>
-            <p class="card-text">Price : <%= @meal.price %>$ </p><center><a class="btn btn-outline-primary rounded-pill mb-3 mt-5" style="background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "Create an Order", new_meal_order_path(meal_id: @meal) %></center></a>
+            <p class="card-text">Price : <%= @meal.price %>$ </p><center><a data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-primary rounded-pill mb-3 mt-5 " style="background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "Create an Order", new_meal_order_path(meal_id: @meal) %></center></a>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Confirm your order</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    You are about to order : <%= @meal.name %>. Do you want to reserve your menu?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" style="border: none; color: #fff!important;"><%= link_to "Yes", new_meal_order_path(meal_id: @meal) %></button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
       </div>
     </div>
@@ -20,6 +41,7 @@
               <li class="list-group-item"><%= @meal.description %></li>
             </ul>
           </div>
+          <button type="button" class="btn btn-lg btn-warning" data-toggle="popover" title="Allergen" data-content="Food for vegetarians and vetals">Allergen information</button>
       </div>
     </div>
       <div class="col-lg">
@@ -43,8 +65,18 @@
     </div>
   </div>
   <br>
-  <h2 style="color: #EC7458" class="mt-3">See more ...</h2>
-  <div class="container-meal-cards mt-5">
+</div>
+
+<h2 style="color: #EC7458" class="mt-5">These look good too... </h2>
+<hr>
+<div class="container-meal-cards mt-2">
+      <div class="card-product">
+        <img <%= @meal.picture_url.last %> alt="other menu">
+        <div class="card-product-infos">
+           <h2><%= @meal.name.first %></h2>
+            <p><%= @meal.description.first %><p>
+        </div>
+      </div>
         <div class="card-product">
           <%= cl_image_tag Meal.first.photo.key, alt: 'picture of #{Meal.first.name}' %>
           <div class="card-product-infos">
@@ -68,7 +100,8 @@
             </div>
   </div>
 </div>
-<div class="container">
+
+
   <div class="btn btn-dark rounded-pill mb-5 mr-5">
   <%= link_to "Back to restaurant", restaurant_path(@meal.restaurant) %>
   </div>
@@ -78,4 +111,3 @@
       <div class="btn btn-dark rounded-pill mb-5 mr-5">
       <%= link_to "Edit this meal", edit_meal_path(@meal) %>
       </div>
-</div>
