@@ -60,7 +60,7 @@
             </div>
           </div>
             <div class="card-product">
-              <<%= cl_image_tag Meal.last.photo.key, alt: 'picture of #{Meal.last.name}' %>
+              <%= cl_image_tag Meal.last.photo.key, alt: 'picture of #{Meal.last.name}' %>
               <div class="card-product-infos">
                  <h2><%= Meal.last.name %></h2>
                 <p><%= Meal.last.description %><p>

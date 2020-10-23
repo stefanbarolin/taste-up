@@ -8,7 +8,7 @@
           <%@meals.each do |meal|  %>
             <%= link_to meal_path(meal) do %>
               <div class="card-product">
-                <%= image_tag meal.picture_url || "" %>
+                <%= cl_image_tag meal.photo.key || "" %>
                 <div class="card-product-infos">
                   <h2><%= meal.name %></h2>
                   <h3> <%= meal.price %></h3>
@@ -27,7 +27,7 @@
           <%= link_to restaurant_path(restaurant) do %>
             <div class="col-4">
               <div class="card-restaurant" style="width: 15rem!important">
-                <img src=<%= restaurant.picture_url %> class="card-img-top" alt=<%= restaurant.name %>>
+                <%= cl_image_tag restaurant.photo.key, class: 'card-img-top', alt: restaurant.name %>
                 <div class="card-body">
                   <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
                 </div>
