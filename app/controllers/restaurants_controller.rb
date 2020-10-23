@@ -17,7 +17,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-     redirect_to restaurants_path
+     redirect_to restaurant_path(current_user.restaurant)
     else
       new
     end
@@ -33,7 +33,7 @@ class RestaurantsController < ApplicationController
   end
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to root_path
   end
 
   def init_restaurant
