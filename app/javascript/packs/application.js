@@ -28,7 +28,13 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
+import { openNav, closeNav } from '../components/sidebar';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  openNav();
+  closeNav();
 });
+
+//= require algolia/v3/algoliasearch.min

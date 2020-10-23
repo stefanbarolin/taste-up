@@ -2,23 +2,31 @@
 </div>
 <div class="container">
   <div class="form-content">
-   <h1>We missed you, glad you're here</h1>
+     <h1>We missed you, glad you're here</h1>
 
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" } %>
+        <%= f.input :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" } %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log In" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-  <% end %>
+
+  <form class="form-content" method='get' action= <%= new_user_registration_path %>>
+    <div class="form-actions">
+      <label for="new-registration">New to Taste Up ?</label>
+      <input class='btn' type="submit" id='new-registration' value='Join us'>
     </div>
+  </form>
 </div>
