@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   get "/results", to: 'pages#results', as: "results"
 
   resources :meals, only: [:show, :edit, :update, :destroy] do
-    resources :orders, only: [:create, :new, :index]
+    resources :orders, only: [:create, :new]
   end
-  resources :orders, only: [:show, :edit, :destroy, :update]
+  resources :orders, only: [:index, :show, :edit, :destroy, :update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

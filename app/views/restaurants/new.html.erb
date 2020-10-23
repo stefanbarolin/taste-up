@@ -4,7 +4,7 @@
   <h1>Create a new restaurant</h1>
   <%= simple_form_for(@restaurant) do |f| %>
     <%= f.input :name %>
-    <%= f.input :picture_url %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :category, :collection => %w(Francais Japonais Libanais Burger Italien) %>
     <%= f.submit "Submit restaurant", class: "btn btn-primary" %>
   <% end %>
