@@ -1,0 +1,18 @@
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <% if user_signed_in? === false %>
+    <%= link_to 'Log in', new_user_session_path %>
+  <% else %>
+    <% if current_user.restaurant %>
+      <%= link_to 'My Restaurant', restaurant_path(current_user.restaurant) %>
+      <%=  link_to 'Orders', orders_path %>
+    <% else %>
+      <%=  link_to 'See my Orders', orders_path %>
+      <%= link_to 'Create a Restaurant', new_restaurant_path %>
+    <% end %>
+  <% end %>
+  <a href="#"></a>
+  <a href="#"></a>
+  <a href="#"></a>
+  <a href="#">Contact Us</a>
+</div>

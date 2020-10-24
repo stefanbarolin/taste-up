@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # Ensure we can use cloudinary
+  config.active_storage.service = :cloudinary
   # Code is not reloaded between requests.
   config.cache_classes = true
 
