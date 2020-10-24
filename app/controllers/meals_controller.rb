@@ -36,8 +36,9 @@ class MealsController < ApplicationController
   def update
     @meal.assign_attributes(meal_params)
     @meal.save
-    redirect_to restaurant_meal_path(@meal)
+    redirect_to meal_path(@meal)
   end
+
   def destroy
     @meal.destroy
     redirect_to restaurant_path(@meal.restaurant)
@@ -46,12 +47,14 @@ class MealsController < ApplicationController
   def init_meal
     @meal = Meal.find(params[:id])
   end
+
   def current_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
+
   private
 
   def meal_params
-    params.require(:meal).permit(:photo, :price, :description, :name)
+    params.require(:meal).permit(:photo, :price, :description, :name, :restaurant_id)
   end
 end
