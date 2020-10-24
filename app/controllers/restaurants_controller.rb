@@ -3,7 +3,13 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
-    @restaurants = Restaurant.all
+    if params[:query].present?
+      @restaurants = Restaurant.algolia_search(params[:query])
+      @meals = Meal.algolia_search(params[:query])
+    else
+      @restaurants = Restaurant.all
+      @meals = Meal.all
+    end
     @carousel_restaurants = @restaurants.first(3)
   end
 
