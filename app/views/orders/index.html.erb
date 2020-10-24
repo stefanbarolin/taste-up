@@ -8,11 +8,10 @@
             <div class="card-body">
               <h5 class="card-title"><%= order.meal.name %></h5>
               <p class="card-text"><%= order.meal.picture_url %>. <p><%= order.meal.price %>$</p></p>
-              <a href="#" class="btn btn-primary mt-4" style="background-color: #EC7458; font-color: #fff; border: none; border-radius: 25px;">Go somewhere</a>
           </div>
         </div>
         <% end %>
    </ul>
-   <button type="button" class="btn btn-primary btn-lg" style="background-color: #FED592; font-color: #fff!important; border: none; border-radius: 10px;"><%= link_to "Go to the home page", root_path %></button>
+   <a class="btn btn-outline-primary rounded-lg mb-3" style="background-color: #000; color: #fff!important; border: none; border-radius: 10px;" <%= link_to "Go to the home page", root_path %></a>
 </div>
 

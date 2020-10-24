@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    # @orders = Order.all
+    @orders = current_user.orders
+    # @orders = Order.where(user: current_user)
+    raise
   end
 
   # def edit
@@ -13,7 +16,7 @@ class OrdersController < ApplicationController
 
   def create
     @meal = Meal.find(params[:meal_id])
-    @order = Order.new(order_params)
+    @order = Order.new
     @order.user = current_user
     @order.meal = @meal
     if @order.save!
