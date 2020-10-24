@@ -1,7 +1,28 @@
-<div class="container">
-  <h1> Your order number <%= @order.id %> </h1>
+<!-- <div class="container">
+  <h1> Your order number  </h1>
      <ul>
-    <li><%= @order.meal.name %> </li>
+    <li><%= @order.meal %> </li>
   </ul>
   </ul>
+</div> -->
+<center>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h4 class="mt-3 mb-5">Your order number <%= @order.id %> is ready ! Enjoy your meal</h4>
+      <div class="card mb-3" style="width: 50%; text-align: center;">
+        <img class="card-img-top " src="https://media.giphy.com/media/JdkSs3QlyJJvO/giphy.gif" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%= @order.meal.name %></h5>
+          <p class="card-text"><%= @order.meal.description %> Total : <%= @order.meal.price %>$</p>
+          <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small></p>
+        </div>
+      </div>
+      <a class="btn btn-outline-primary rounded-pill mt-2 mb-3" style="background-color: #EC7458; border-color: #EC7458; color: #fff;" <%= link_to "List of my orders", orders_path %></a>
+    </div>
+  </div>
+</div>
+</center>
+<div class="alert alert-success" role="alert">
+  Your order is sent
 </div>
