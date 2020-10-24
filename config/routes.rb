@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   resources :meals, only: [:show, :edit, :update, :destroy] do
     resources :meal_reviews, only: [:create]
-    #resources :orders, only: [:create, :new, :index]
-  end
     resources :orders, only: [:create, :new]
   end
   resources :orders, only: [:index, :show, :edit, :destroy, :update]
