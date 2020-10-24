@@ -1,18 +1,22 @@
-<div class="container mt-5 mb-3">
-  <h1>All orders</h1>
+<div class="container mt-5" style="background-color: #FFF;">
+  <br>
+  <h1 class="m-1">All orders</h1>
     <ul>
       <div class="d-flex align-content-start flex-wrap">
         <% @orders.each do |order| %>
         <div class="card m-3" style="width: 18rem;">
           <%= cl_image_tag order.meal.photo.key, class: 'card-img-top', alt: order.meal.name, crop: :fill%>
-            <div class="card-body">
+            <div class="card-body" style="background-color: #f4f4f4;">
               <h5 class="card-title"><%= order.meal.name %></h5>
               <p class="card-text"><%= order.meal.description %>. <p><%= order.meal.price %>$</p></p>
-              <%= link_to 'See the order', order %>
+              <a class="btn btn-outline-primary mt-2 btn-orders" style="background-color: #fff; color: #EC7458; border-radius: 10px; border-color: #EC7458;" <%= link_to 'See the order', order %></a>
           </div>
         </div>
         <% end %>
    </ul>
    <a class="btn btn-outline-primary rounded-lg mb-3" style="background-color: #000; color: #fff!important; border: none; border-radius: 10px;" <%= link_to "Go to the home page", root_path %></a>
+</div>
+<div class="alert alert-primary" role="alert">
+  Get -10% on the total of your next order !
 </div>
 
