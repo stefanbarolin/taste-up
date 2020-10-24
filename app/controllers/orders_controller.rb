@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     # @orders = Order.all
     @orders = current_user.orders
     # @orders = Order.where(user: current_user)
-    raise
   end
 
   # def edit
