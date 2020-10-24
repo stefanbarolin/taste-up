@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :init_restaurant, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:show, :index]
 
   def index
     @restaurants = Restaurant.all
@@ -17,7 +18,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.user = current_user
     if @restaurant.save
-     redirect_to restaurants_path
+     redirect_to restaurant_path(current_user.restaurant)
     else
       new
     end
@@ -33,7 +34,7 @@ class RestaurantsController < ApplicationController
   end
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_path
+    redirect_to root_path
   end
 
   def init_restaurant
@@ -43,6 +44,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :adress, :category, :picture_url)
+    params.require(:restaurant).permit(:name, :adress, :category, :photo)
   end
 end

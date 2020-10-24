@@ -1,6 +1,7 @@
 class MealsController < ApplicationController
   before_action :init_meal, only: [:show, :edit, :update, :destroy]
   before_action :current_restaurant, only: [:index, :new, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def home
   end
@@ -10,6 +11,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    # @order = @meal.order
   end
 
   def new
@@ -48,6 +50,6 @@ class MealsController < ApplicationController
   private
 
   def meal_params
-    params.require(:meal).permit(:picture_url, :price, :description, :name)
+    params.require(:meal).permit(:photo, :price, :description, :name)
   end
 end
