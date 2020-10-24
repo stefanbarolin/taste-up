@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :restaurants do
-    # delete "restaurants/:id", to: "restaurants#destroy", as: "delete"
+    # delete "restaurants/:id", to: "restaurants#destroy",as: "delete"
     resources :meals, only: [:create, :new, :index]
   end
 
