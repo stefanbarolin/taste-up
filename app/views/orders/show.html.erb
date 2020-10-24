@@ -5,14 +5,22 @@
   </ul>
   </ul>
 </div> -->
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80); font-color: #FFF;">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  </div>
 <center>
-<div class="container">
+<div class="container" style="background-color: #fff;">
   <div class="row">
     <div class="col-lg-12">
       <h4 class="mt-3 mb-5">Your order number <%= @order.id %> is ready ! Enjoy your meal</h4>
       <div class="card mb-3" style="width: 50%; text-align: center;">
         <img class="card-img-top " src="https://media.giphy.com/media/JdkSs3QlyJJvO/giphy.gif" alt="Card image cap">
-        <div class="card-body">
+        <div class="card-body" style="background-color: #F4F4F4;">
           <h5 class="card-title"><%= @order.meal.name %></h5>
           <p class="card-text"><%= @order.meal.description %> Total : <%= @order.meal.price %>$</p>
           <p class="card-text"><small class="text-muted">Last updated 1 mins ago</small></p>
