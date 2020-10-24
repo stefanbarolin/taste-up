@@ -11,7 +11,9 @@ class MealsController < ApplicationController
   end
 
   def show
-    # @order = @meal.order
+    @meal_review = MealReview.new
+    @meal = Meal.find(params[:id])
+    @meal_reviews = @meal.meal_reviews
   end
 
   def new

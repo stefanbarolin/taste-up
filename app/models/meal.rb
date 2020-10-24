@@ -6,7 +6,7 @@ class Meal < ApplicationRecord
 
     searchableAttributes ['name', 'description']
   end
-
+  has_many :meal_reviews, dependent: :destroy
   belongs_to :restaurant
 
   has_one_attached :photo
