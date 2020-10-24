@@ -88,6 +88,23 @@
   </div>
 </div>
 <div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+        <h3>Add a review</h3>
+            <%= simple_form_for [@meals, @meal_review ]  do |f| %>
+                <div id="rating-form">
+                    <%= f.input :rating, collection: (1..5).to_a %>
+                </div>
+                <%= f.input :content, as: :text %>
+                <%= f.submit "Post your review", class: "btn btn-primary" %>
+            <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
   <div class="btn btn-dark rounded-pill mb-5 mr-5">
   <%= link_to "Back to restaurant", restaurant_path(@meal.restaurant) %>
   </div>
