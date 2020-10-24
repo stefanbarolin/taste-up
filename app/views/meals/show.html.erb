@@ -70,33 +70,33 @@
 <hr>
 <div class="container-meal-cards mt-2">
       <div class="card-product">
-        <img <%= @meal.picture_url.last %> alt="other menu">
+        <%= cl_image_tag Meal.first.photo.key, alt: Meal.first.name %>
         <div class="card-product-infos">
-           <h2><%= @meal.name.first %></h2>
-            <p><%= @meal.description.first %><p>
+           <h2><%= Meal.first.name %></h2>
+            <p><%= Meal.first.description %><p>
         </div>
       </div>
-        <div class="card-product">
-          <%= cl_image_tag Meal.first.photo.key, alt: 'picture of #{Meal.first.name}' %>
-          <div class="card-product-infos">
-             <h2><%= Meal.first.name %></h2>
-              <p><%= Meal.first.description %><p>
-          </div>
+      <div class="card-product">
+        <%= cl_image_tag Meal.first.photo.key, alt: Meal.first.name %>
+        <div class="card-product-infos">
+           <h2><%= Meal.first.name %></h2>
+            <p><%= Meal.first.description %><p>
         </div>
-          <div class="card-product">
-            <%= cl_image_tag Meal.first.photo.key, alt: 'picture of #{Meal.first.name}' %>
-            <div class="card-product-infos">
-              <h2><%= Meal.first.name %></h2>
-              <p><%= Meal.first.description %><p>
-            </div>
-          </div>
-            <div class="card-product">
-              <%= cl_image_tag Meal.last.photo.key, alt: 'picture of #{Meal.last.name}' %>
-              <div class="card-product-infos">
-                 <h2><%= Meal.last.name %></h2>
-                <p><%= Meal.last.description %><p>
-              </div>
-            </div>
+      </div>
+      <div class="card-product">
+        <%= cl_image_tag Meal.first.photo.key, alt: Meal.first.name %>
+        <div class="card-product-infos">
+          <h2><%= Meal.first.name %></h2>
+          <p><%= Meal.first.description %><p>
+        </div>
+      </div>
+      <div class="card-product">
+        <%= cl_image_tag Meal.last.photo.key, alt: Meal.last.name %>
+        <div class="card-product-infos">
+           <h2><%= Meal.last.name %></h2>
+          <p><%= Meal.last.description %><p>
+        </div>
+      </div>
   </div>
 </div>
 
