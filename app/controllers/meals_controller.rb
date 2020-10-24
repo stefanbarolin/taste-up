@@ -10,6 +10,9 @@ class MealsController < ApplicationController
   end
 
   def show
+    @meal_review = MealReview.new
+    @meal = Meal.find(params[:id])
+    @meal_reviews = @meal.meal_reviews
   end
 
   def new

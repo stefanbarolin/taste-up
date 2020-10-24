@@ -44,7 +44,9 @@
       <div class="col-lg">
         <div class="col-lg">
       <div class="card" style="width: 20rem; background-color: #E3E3E3;">
-        <h2 class="mt-3 mr-3 ml-3 mb-5 pb-1" style="font-size: 25px; font-weight: bold; color: #EC7458;"><center style="border-bottom: solid 2px #EC7458"> All reviews </center></h2>
+        <h2 class="mt-3 mr-3 ml-3 mb-5 pb-1" style="font-size: 25px; font-weight: bold; color: #EC7458;">
+          <center style="border-bottom: solid 2px #EC7458"> All reviews</center>
+        </h2>
           <div class="card-body mb-3">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
@@ -87,10 +89,20 @@
             </div>
   </div>
 </div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-xs-4">
-        <h3>Add a review</h3>
+      <% @meal.meal_reviews.each do |review| %>
+    <ul>
+      <li>
+        <span><%= review.rating %></span>
+        <span><i class="far fa-star" style="color: #EC7357;"></i> <%= review.content %></span>
+      </li>
+    </ul>
+    <% end %>
+        <h3>Add a review</h3>        
             <%= simple_form_for [@meal, @meal_review ]  do |f| %>
                 <div id="rating-form">
                     <%= f.input :rating, collection: (1..5).to_a %>
@@ -99,11 +111,9 @@
                 <%= f.submit "Post your review", class: "btn btn-primary" %>
             <% end %>
     </div>
-  </div>
+   </div>
 </div>
-
-
-
+<br>
 <div class="container">
   <div class="btn btn-dark rounded-pill mb-5 mr-5">
   <%= link_to "Back to restaurant", restaurant_path(@meal.restaurant) %>
@@ -113,8 +123,5 @@
     </div>
       <div class="btn btn-dark rounded-pill mb-5 mr-5">
       <%= link_to "Edit this meal", edit_meal_path(@meal) %>
-      </div>
-      <div class="btn btn-dark rounded-pill mb-5 mr-5">
-      <%= link_to "Add a review", new_meal_meal_review_path(@meal) %>
       </div>
 </div>
