@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @carousel_restaurants = @restaurants.first(3)
   end
 
   def show
