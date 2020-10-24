@@ -11,6 +11,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    # @order = @meal.order
   end
 
   def new
