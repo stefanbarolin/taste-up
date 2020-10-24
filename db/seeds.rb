@@ -17,10 +17,12 @@ puts 'Creating users…'
     password: "12345678",
     username: Faker::Company,
   )
-restaurateur.save!
- Restaurant.create(user_id: restaurateur.id, name: Faker::Restaurant.name, category: Faker::Restaurant.type, adress: Faker::Address.street_address)
+  restaurateur.save!
+  restaurant = Restaurant.create(user_id: restaurateur.id, name: Faker::Restaurant.name, category: Faker::Restaurant.type, adress: Faker::Address.street_address)
+  3.times do
+    Meal.create(name: Faker::Food.dish, description: "this is food", price: 10, restaurant_id: restaurant.id)
+  end
 end
-
 puts 'Done!'
 
 

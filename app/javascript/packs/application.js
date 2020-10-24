@@ -37,5 +37,5 @@ document.addEventListener('turbolinks:load', () => {
 
 //  import the function ratings for meal reviews
 
-
+//= require algolia/v3/algoliasearch.min
 

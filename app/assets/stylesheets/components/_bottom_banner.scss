@@ -1,0 +1,26 @@
+.bottom-banner {
+  margin-top: 25px;
+  background-color: #ececec;
+  height: 130px;
+  padding: 20px 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bottom-banner h3 {
+  color: $coral;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.bottom-banner a {
+    cursor: pointer;
+    background-color: $coral;
+    color: white;
+    padding: 10px 80px;
+    margin-top: 9px;
+    border-radius: 20px;
+    text-align: center;
+}

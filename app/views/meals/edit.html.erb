@@ -6,7 +6,7 @@
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.input :price %>
-  <%= f.input :picture_url %>
+  <%= f.input :photo, as: :file %>
   <%= f.submit "Edit this meal", class: "btn btn-primary" %>
 <% end %>
 <%= link_to "Back to #{@restaurant.name}", restaurant_path(@restaurant) %>

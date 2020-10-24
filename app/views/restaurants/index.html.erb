@@ -1,28 +1,44 @@
 <div class="banner-restaurant-index">
-  <h3>Best places to eat</h3>
-</div>
-<div class="container index">
-  <h1>All restaurants</h1>
-  <div class="row">
-    <% @restaurants.each do |restaurant| %>
-    <%= link_to restaurant_path(restaurant) do %>
-    <div class="col-4">
-      <div class="card-restaurant" style="width: 15rem!important">
-        <img src=<%= restaurant.picture_url %> class="card-img-top" alt=<%= restaurant.name %> || "https://images.unsplash.com/photo-1511688878353-3a2f5be94cd7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60">
-        <div class="card-body">
-          <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
-        </div>
-        <p class="card-footer">
-        <span>5</span>
-        <span>
-        <i class="far fa-star"></i>
-        </span>
-        <span>(100+ votes) <%= restaurant.category %></span>
-        </p>
-      </div>
+  <h1>Pick a meal</h1>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @carousel_restaurants.each do |restaurant| %>
+        <% next if restaurant.meals.empty? %>
+        <%= render "carousel-item", restaurant: restaurant, active: restaurant == @carousel_restaurants.first %>
+      <% end  %>
     </div>
-    <% end %>
-    <% end %>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-  <%= link_to "add a restaurant", new_restaurant_path %>
 </div>
+
+
+<div class="container index">
+  <h1>...or a restaurants</h1>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% @restaurants.each do |restaurant| %>
+        <%= render "carousel-restaurant", restaurant: restaurant, active: restaurant == @carousel_restaurants.first %>
+      <% end  %>
+  </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon restaurant" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon restaurant" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  </div>
+  <div class="bottom-banner">
+    <h3>You're a restaurant owner ?</h3>
+    <%= link_to "Add my restaurant", new_restaurant_path %>
+  </div></div>

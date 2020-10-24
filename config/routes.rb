@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     resources :meal_reviews, only: [:create]
     #resources :orders, only: [:create, :new, :index]
   end
-  resources :orders, only: [:destroy]
+    resources :orders, only: [:create, :new]
+  end
+  resources :orders, only: [:index, :show, :edit, :destroy, :update]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
