@@ -4,7 +4,7 @@
     <%= link_to restaurant_path(restaurant) do %>
     <div class="col-4">
       <div class="card-restaurant" style="width: 15rem!important">
-        <%= cl_image_tag restaurant.photo.key, class: 'card-img-top', height: 300, alt: restaurant.name %>
+        <%= cl_image_tag restaurant.photo.key, class: 'card-img-top', height: 160, alt: restaurant.name %>
         <div class="card-body">
           <p class="card-title"><%= restaurant.name %> - <%= restaurant.adress %></p>
         </div>
