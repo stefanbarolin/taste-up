@@ -1,27 +1,19 @@
 class OrdersController < ApplicationController
 
   def index
-    # @orders = Order.all
     @orders = current_user.orders
-    # @orders = Order.where(user: current_user)
   end
-
-  # def edit
-  #   @order= Order.find(params[:id])
-  #   @order.assign_attributes(order_params)
-  #   @order.save
-  #   redirect_to task_path
-  # end
 
   def create
     @meal = Meal.find(params[:meal_id])
     @order = Order.new
     @order.user = current_user
     @order.meal = @meal
+
     if @order.save!
-    redirect_to order_path(@order)
-  else
-    render :new
+      redirect_to order_path(@order)
+    else
+      render :new
     end
   end
 
@@ -30,10 +22,6 @@ class OrdersController < ApplicationController
     @order = Order.new
     @random_meals = Meal.all.sample(3)
   end
-
-  # def update
-  #   edit
-  # end
 
   def destroy
     @order = Order.find(params[:id])

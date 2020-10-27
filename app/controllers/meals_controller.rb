@@ -23,7 +23,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.restaurant = @restaurant
-    if @meal.save
+    if @meal.save!
     redirect_to restaurant_path(@restaurant)
     else
       render :new

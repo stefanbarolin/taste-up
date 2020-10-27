@@ -5,7 +5,8 @@ class MealReviewsController < ApplicationController
     @meal_review = MealReview.new(reviews_params)
     @meal_review.meal = @meal
     @meal_review.user = current_user
-    if @meal_review.save
+
+    if @meal_review.save!
       redirect_to meal_path(@meal)
     else
       render 'meal/show'
