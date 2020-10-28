@@ -4,11 +4,12 @@ class Restaurant < ApplicationRecord
   algoliasearch do
     attributes :name, :adress, :category
 
-    searchableAttributes ['category', 'name', 'adress']
+    searchableAttributes ['name', 'adress', 'category']
   end
 
   belongs_to :user
   has_many :meals, dependent: :destroy
+  has_many :orders
 
   has_one_attached :photo
 end

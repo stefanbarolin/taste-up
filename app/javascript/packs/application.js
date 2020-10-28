@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("algolia/algoliasearch.min")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -27,15 +28,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { initStarRating } from '../plugins/init_star_rating';
+import { initMealSearch } from '../plugins/init_meal_search';
+import { initNavbar } from '../components/init_navbar';
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initStarRating();
+  initMealSearch();
+  initNavbar();
 });
-
-//  import the function ratings for meal reviews
-
-//= require algolia/v3/algoliasearch.min
-

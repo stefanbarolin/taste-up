@@ -1,5 +1,3 @@
-AlgoliaSearch.configuration = { application_id: ENV["APPLICATION_ID"], api_key: ENV["ALGOLIA_API_KEY"] }
-
 AlgoliaSearch.configuration = {
   application_id: ENV["APPLICATION_ID"],
   api_key: ENV["ALGOLIA_API_KEY"],

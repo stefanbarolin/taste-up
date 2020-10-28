@@ -2,7 +2,8 @@
   <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Hungry...?"
+    placeholder: "Hungry...?",
+    autocomplete: "off"
   %>
   <div class="input-group-append">
     <%= submit_tag "Search",
